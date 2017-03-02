@@ -112,7 +112,7 @@ Mettre dans style.xml :
 <item name="android:windowSharedElementExitTransition">@transition/change_image_transform</item>
 ```
 
-Il ne reste plus que deux étapes avant d'en terminer avec cette transision :
+Il ne reste plus que deux étapes avant d'en terminer avec cette transition :
 
 Donnons un nom de transition au **second** logo (celui dans la liste des salons) : Ajoutez l'attribut `transitionName` à l'`ImageView ` donnez lui pour nom `logo`
 
