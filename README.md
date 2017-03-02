@@ -69,7 +69,7 @@ Attention cependant les champs identifiant et mot de passe ne sont pas de simple
 
 ### Construction du 2ème layout
 
-- Construisez un 2ème layout (normalement celui qui liste les salons de disscution) en rajoutant la même `ImageView` représentant le même logo de l'application mais d'une couleur différente.
+- Construisez un 2ème layout (normalement celui qui liste les salons de discussion) en rajoutant la même `ImageView` représentant le même logo de l'application mais d'une couleur différente.
 
 Indice : Pour lui appliquer une coloration différente, jetez un oeil du côté de l'attribut xml `tint`
 
