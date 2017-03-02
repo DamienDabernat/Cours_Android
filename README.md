@@ -13,7 +13,7 @@ Tout au long de ce projet nous allons utiliser des éléments de design qui ne s
 compile 'com.android.support:design:25.1.0'
 ```
 
-- Profitez-en pour changer la version minimum du sdk à 21 (Android Lollipop) si ce n'est déja pas le cas.
+- Profitez-en pour changer la version minimum du sdk à 21 (Android Lollipop) si ce n'est pas déja le cas.
 - Synchronisez le gradle.
 
 ---
