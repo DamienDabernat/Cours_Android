@@ -3,9 +3,9 @@
 ---
 ### Préparation du projet
 
-Assurer-vous d'avoir un projet qui compile, si ce n'est pas le cas partez d'un nouveau projet.
+Assurez-vous d'avoir un projet qui compile, si ce n'est pas le cas partez d'un nouveau projet.
 
-Tout au long de ce projet nous allons utilisé des éléments de design qui ne sont pas inclus par défaut dans le sdk d'Android pour cela vous devais ajouter la bibliothèque de support design de Google.
+Tout au long de ce projet nous allons utiliser des éléments de design qui ne sont pas inclus par défaut dans le sdk d'Android pour cela vous devez ajouter la bibliothèque de support design de Google.
 
 - Dans le build.gradle (Module : app) :
 ```
@@ -14,13 +14,13 @@ compile 'com.android.support:design:25.1.0'
 ```
 
 - Profitez-en pour changer la version minimum du sdk à 21 (Android Lollipop) si ce n'est déja pas le cas.
-- Synchroniser le gradle.
+- Synchronisez le gradle.
 
 ---
 
 ### Construction du 1er layout
 
-- Modifier le layout de login en faisant en sorte que le layout racine soit un `linear layout` ayant pour id `llBackground` comme ci dessous :
+- Modifiez le layout de login en faisant en sorte que le layout racine soit un `linear layout` ayant pour id `llBackground` comme ci dessous :
 
 ```
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -41,9 +41,9 @@ Faites en sorte d'obtenir le résultat suivant :
 
 ![N|Solid](http://damien.dabernat.fr/android/loginActivity.jpg)
 
-[Lien vers le logo](http://damien.dabernat.fr/android/channel_messaging_logo.png), où faites le votre rapidement à condition qu'il soit blanc avec une résolution similaire ;)
+[Lien vers le logo](http://damien.dabernat.fr/android/channel_messaging_logo.png), ou faites le votre rapidement à condition qu'il soit blanc avec une résolution similaire ;)
 
-Attention cependant les champs identifiant et mot de passe ne sont pas de simple champs `TextView` et `EditText` mais une des nouvelles façon d'animer simplement les champs de type input d'après les guidelines material design. Voici un exemple d'intégration de ses nouveaux éléments :
+Attention cependant les champs identifiant et mot de passe ne sont pas de simple champs `TextView` et `EditText` mais une des nouvelles façons d'animer simplement les champs de type input d'après les guidelines material design. Voici un exemple d'intégration de ces nouveaux éléments :
 
 ```
     <android.support.design.widget.TextInputLayout
@@ -63,13 +63,13 @@ Attention cependant les champs identifiant et mot de passe ne sont pas de simple
     </android.support.design.widget.TextInputLayout>
 ```
 
-- Faites de même pour le champs mot de passe. Pensez bien toutefois à renseigner le champs `inputType` de l'`editText` avec la valeur `textPassword`
+- Faites de même pour le champ mot de passe. Pensez bien toutefois à renseigner le champ `inputType` de l'`editText` avec la valeur `textPassword`
 
 ---
 
-### Construction du 2nd layout
+### Construction du 2ème layout
 
-- Construisez un 2nd layout (normalement celui qui liste les salons de disscution) en rajoutant la même `ImageView` représentant le même logo de l'application mais d'une couleur différente.
+- Construisez un 2ème layout (normalement celui qui liste les salons de disscution) en rajoutant la même `ImageView` représentant le même logo de l'application mais d'une couleur différente.
 
 Indice : Pour lui appliquer une coloration différente, jetez un oeil du côté de l'attribut xml `tint`
 
@@ -79,12 +79,12 @@ Indice : Pour lui appliquer une coloration différente, jetez un oeil du côté 
 
 ### Les transitions
 
-Les transitions sont le moyen le plus simple d'obtenir de joli effet d'ouverture et de fermeture entre plusieurs activitées. 
+Les transitions sont le moyen le plus simple d'obtenir de jolis effets d'ouverture et de fermeture entre plusieurs activitées. 
 
-Dans l'exemple qui suit nous allons essayé d'obtnir une transition entre les deux logo présents dans les layout créer dans la première partie.
+Dans l'exemple qui suit nous allons essayer d'obtenir une transition entre les deux logos présents dans les layout créés dans la première partie.
 
-- Creer un dossier de ressource nommé `transition`
-- Créer le fichier : `change_image_transform.xml`
+- Créez un dossier de ressource nommé `transition`
+- Créez le fichier : `change_image_transform.xml`
 
 Mettre le code suivant dans le fichier précédement créé :
 ```
@@ -100,7 +100,7 @@ https://developer.android.com/reference/android/transition/Transition.html)
 Nous avons donc un fichier de définition de transition qui décrit comment une transition doit s'oppérer : d'abord par une coloration de l'ancien logo par le nouveau puis par une translation vers le nouveau logo.
 
 
-Par la suite nous devons déclarer dans le fichier de style que nous allons utilisé des transition. Puis définir les transition d'entrée et de sortie par défaut.
+Par la suite nous devons déclarer dans le fichier de style que nous allons utiliser des transitions. Puis définir les transitions d'entrée et de sortie par défaut.
 
 Mettre dans style.xml :
 ```
@@ -116,18 +116,18 @@ Il ne reste plus que deux étapes avant d'en terminer avec cette transision :
 
 Donnons un nom de transition au **second** logo (celui dans la liste des salons) : Ajoutez l'attribut `transitionName` à l'`ImageView ` donnez lui pour nom `logo`
 
-La 'final touch' : Dans votre première activité (celle de login) lors de votre intent vers le 2nd écran 
+La 'final touch' : Dans votre première activité (celle de login) lors de votre intent vers le 2ème écran 
 
-Remplacer votre intent par celle-ci :
+Remplacez votre intent par celle-ci :
 
 ```
 Intent loginIntent = new Intent(LoginActivity.this, ChannelListActivity.class);
 startActivity(loginIntent, ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, mIvLogo, "logo").toBundle());
 ```
 
-L'astuce réside ici dans `ActivityOptions.makeSceneTransitionAnimation` qui prends en 1er paramètre l'activité, en second la vue ImageView du logo et enfin le nom que nous avons précédement donner au 2nd logo (ici Android connait donc par quelle vue commencer et par quelle vue finir !)
+L'astuce réside ici dans `ActivityOptions.makeSceneTransitionAnimation` qui prends en 1er paramètre l'activité, en second la vue `ImageView` du logo et enfin le nom que nous avons précédement donner au second logo (ici Android sait donc par quelle vue commencer et par quelle vue finir !)
 
-- Testez ! Essayer plusieur type de transition et incorporez un second élément de transition (comme un `TextView` par exemple).
+- Testez ! Essayez plusieurs type de transition et incorporez un second élément de transition (comme un `TextView` par exemple).
 
 Astuce pour incorporer plusieurs élément de transition :
 ```
@@ -138,7 +138,7 @@ ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this,
 ---
 
 ##### Transition seconde partie :
-Pour finir nous allons préciser la façon dont la fênetre de l'activité elle-même doit s'animer en entrée ou en sortie pour cela mettre dans style.xml :
+Pour finir nous allons préciser la façon dont la fênetre de l'activité elle-même doit s'animer en entrée ou en sortie. Pour cela mettre dans style.xml :
 
 ```
   <!-- specify enter and exit transitions -->
@@ -148,19 +148,19 @@ Pour finir nous allons préciser la façon dont la fênetre de l'activité elle-
 
 ```
 
-- Tester une nouvelle fois.
+- Testez une nouvelle fois.
 
 ---
 
 ### Les animations
 
-Dans ce chapitre nous allons voir deux façon d'obtenir de belles animations.
+Dans ce chapitre nous allons voir deux façons d'obtenir de belles animations.
 
 Le but est de pouvoir reproduire ce layout :
 
 ![N|Solid](http://damien.dabernat.fr/android/animation.gif)
 
-La plus simple est d'importer des bibliothèques réputé et soutenu par la communauté. Il y en a pléthore mais aujourd'hui nous allons utiliser AndroidViewAnimations qui a l'avantage d'être très simple d'utilisation :
+La plus simple est d'importer des bibliothèques réputées et soutenues par la communauté. Il y en a beaucoup mais aujourd'hui nous allons utiliser AndroidViewAnimations qui a l'avantage d'être très simple d'utilisation :
 
 [Lien du git ici](https://github.com/daimajia/AndroidViewAnimations)
 
@@ -173,9 +173,9 @@ compile 'com.daimajia.androidanimations:library:2.2@aar'
 
 - Prennez connaissance de la bibliothèque.
 
-On souhaite ajouter maintenant ajouter l'effet 'tada' au logo toutes les 4 secondes.
+On souhaite maintenant ajouter l'effet 'tada' au logo toutes les 4 secondes.
 
-Pour pouvoir exécuter une tache toute les 'x' secondes une des méthodes possible est la suivante :
+Pour pouvoir exécuter une tache toute les 'x' seconde une des méthodes possible est la suivante :
 
 ```
 mHandlerTada = new Handler();
@@ -189,7 +189,7 @@ mHandlerTada.postDelayed(new Runnable(){
 }, mShortDelay);
 ```
 
-- Compléter ce code en y ajoutant l'animation 'Tada' sur le logo du layout.
+- Complétez ce code en y ajoutant l'animation 'Tada' sur le logo du layout.
 
 ---
 
@@ -197,8 +197,8 @@ mHandlerTada.postDelayed(new Runnable(){
 
 Une seconde façon de faire est de définir une animation a la main en `xml` :
 
-- Creer un dossier de ressource nommé `anim`
-- Créer le fichier `slide_left.xml` dans ce dossier et y insérer :
+- Créez un dossier de ressource nommé `anim`
+- Créez le fichier `slide_left.xml` dans ce dossier et y insérer :
 
 ```
 <set xmlns:android="http://schemas.android.com/apk/res/android"
@@ -217,7 +217,7 @@ Une seconde façon de faire est de définir une animation a la main en `xml` :
 
 C'est dans ce dossier qu'on insère toutes les animations du projet.
 
-Nous allons à l'appuis du bouton connexion faire disparaitre le `TextView` du dessous via une animation de glissement par la gauche pour cela il suffit de déclarer et d'instancier l'animation au moment voulu dans la lancer via la methode `startAnimation()` de la vue. 
+Nous allons à l'appui du bouton connexion faire disparaitre le `TextView` du dessous via une animation de glissement par la gauche. Pour cela il suffit de déclarer et d'instancier l'animation au moment voulu. Puis de la lancer via la méthode `startAnimation()` de la vue. 
 
 ```
             Animation animSlideLeft = AnimationUtils.loadAnimation(this, R.anim.slide_left);
@@ -231,7 +231,7 @@ Nous allons à l'appuis du bouton connexion faire disparaitre le `TextView` du d
 
 **Astuce :** Vous pouvez retarder la connexion à l'api via un handler()
 
-A vous de joué en créant plusieurs animations sur différente vue à l'aide [de ce site](http://www.journaldev.com/9481/android-animation-example).
+A vous de jouer en créant plusieurs animations sur différentes vues à l'aide [de ce site](http://www.journaldev.com/9481/android-animation-example).
 
 ---
 
@@ -239,8 +239,8 @@ A vous de joué en créant plusieurs animations sur différente vue à l'aide [d
 
 Insérez cette bibliothèque : [AVLoadingIndicatorView](https://github.com/81813780/AVLoadingIndicatorView)
 
-Votre objectif ici est qu'a l'appuis sur le bouton connexion le bouton disparasse via un fondu sortant et laisse place à un loader.
-Pour cela vous allez devoir entourer les composant `Button` et `AVLoadingIndicatorView` d'un `RelativeLayout`.
+Votre objectif ici est qu'à l'appui sur le bouton connexion le bouton disparaisse via un fondu sortant et laisse place à un loader.
+Pour cela vous allez devoir entourer les composants `Button` et `AVLoadingIndicatorView` d'un `RelativeLayout`.
 
 ---
 
@@ -253,7 +253,7 @@ Ajoutez-y une action de re-connexion.
 
 ### Défilement
 
-Faites défillé plusieurs messages en dessous du bouton de connexion
+Faites défiller plusieurs messages en dessous du bouton de connexion
 
 ***Aide :***
 
@@ -267,7 +267,7 @@ explainStringArray[new Random().nextInt(explainStringArray.length)]
 ```
 ***Aide (bis):***
 
-Yoyo possède un listener qui permet de lancer du code lors de différents évènement.
+Yoyo possède un listener qui permet de lancer du code lors de différents évènements.
 ```
 YoYo.with(Techniques.SlideOutRight).duration(750).withListener(new Animator.AnimatorListener() {...}).playOn(mTvExplain);
 ```
@@ -282,6 +282,6 @@ Une dernière touche d'animation pour finir ce layout : [La réalisation d'un d�
 
 ### Pour les plus rapides
 
-Réaliser une activité "A propos" en utilisant les coordinators layout
+Réalisez une activité "A propos" en utilisant les coordinators layout
 
 
