@@ -166,6 +166,15 @@ Dans le fichier `style.xml` du dossier `values` ajouter ce style :
 
 Puis dans le layout de l'activité indiquer à la vue TextInputLayout quel thème utiliser en y ajoutant l'attribut : `android:theme="@style/TextLabel"`
 
+```
+<android.support.design.widget.TextInputLayout
+    android:id="@+id/input_layout_email"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/TextLabel"
+    android:layout_margin="16dp">
+ ```
+
 ---
 
 ### Construction du 2ème layout
@@ -388,25 +397,3 @@ Une dernière touche d'animation pour finir ce layout : [La réalisation d'un d�
 Réalisez une activité "A propos" en utilisant les coordinators layout
 
 ---
-
-### En vrac
-
-```
-<style name="TextLabel" parent="TextAppearance.AppCompat">
-    <!-- Hint color and label color in FALSE state -->
-    <item name="android:textColorHint">@color/red_500</item>
-    <item name="android:textSize">20sp</item>
-    <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
-    <item name="colorControlNormal">@color/pink_300</item>
-    <item name="colorControlActivated">@color/green_400</item>
-</style>
-```
-
-```
-<android.support.design.widget.TextInputLayout
-    android:id="@+id/input_layout_email"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/TextLabel"
-    android:layout_margin="16dp">
- ```
