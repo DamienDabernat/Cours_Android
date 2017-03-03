@@ -18,6 +18,88 @@ compile 'com.android.support:design:25.1.0'
 
 ---
 
+### Un petit mot sur les thèmes
+
+Un style est un ensemble d’attributs qui définisses l’apparence et le format d’une vue.
+Il se défini dans un fichier ressource XML séparé du fichier XML de votre vue.
+Ce fichier se nomme en général styles.xml et se situe dans le dossier values.
+
+Vous pouvez appliquer un style (ou thème) sur l’application entière ou sur une vue spécifique.
+
+Pour définir un style pour l’application il faut ajouter l’attribut thème dans le manifest.xml :
+
+```
+<application
+android:allowBackup="true"
+android:icon="@mipmap/ic_launcher"
+android:label="@string/app_name"
+***android:theme="@style/AppTheme »***>
+```
+
+De la même manière on peux définir un thème spécifique a une activité :
+
+```
+<activity
+    android:name=".activity.SplashActivity"
+    ***android:theme="@style/SplashTheme »***>
+    <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
+Colors.xml
+
+Pour une question de simplicité les couleurs peuvent être elles aussi séparé du layout.xml d’une vue.
+Dans ce cas les couleurs sont rassemblé dans le dossier res/values/colors.xml
+
+Vous pouvez ajouter celle-ci :
+
+```
+ <color name="white">#FFFFFF</color>
+ <color name="yellow">#FFFF00</color>
+ <color name="fuchsia">#FF00FF</color>
+ <color name="red">#FF0000</color>
+ <color name="silver">#C0C0C0</color>
+ <color name="gray">#808080</color>
+ <color name="olive">#808000</color>
+ <color name="purple">#800080</color>
+ <color name="maroon">#800000</color>
+ <color name="aqua">#00FFFF</color>
+ <color name="lime">#00FF00</color>
+ <color name="teal">#008080</color>
+ <color name="green">#008000</color>
+ <color name="blue">#0000FF</color>
+ <color name="navy">#000080</color>
+ <color name="black">#000000</color>
+```
+
+Par défaut Android a besoin de 3 types de couleurs qu’on retrouvera partout dans les composants de base.
+
+```
+<color name="colorPrimary">#3F51B5</color>
+<color name="colorPrimaryLight">#989AD7</color>
+<color name="colorPrimaryDark">#37398D</color>
+```
+
+Dans le fichier style.xml :
+
+```
+<!-- Main theme colors -->
+<!--   your app branding color for the app bar -->
+<item name="colorPrimary">@color/colorPrimary</item>
+<!--   darker variant for the status bar and contextual app bars -->
+<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+<item name="colorAccent">@color/colorAccent</item>
+```
+
+Ce sont ces trois couleurs qui seront utilisé par défaut pour donner une couleur aux vue tel que l’actionBar.
+
+- A vous de jouer en modifiant les couleurs du thème par défaut par celle que vous préféré.
+
+---
+
 ### Construction du 1er layout
 
 - Modifiez le layout de login en faisant en sorte que le layout racine soit un `linear layout` ayant pour id `llBackground` comme ci dessous :
@@ -65,6 +147,25 @@ Attention cependant les champs identifiant et mot de passe ne sont pas de simple
 
 - Faites de même pour le champ mot de passe. Pensez bien toutefois à renseigner le champ `inputType` de l'`editText` avec la valeur `textPassword`
 
+Si vous souhaitez modifier la couleur du texte d'indication voici comment faire :
+
+Dans le fichier `style.xml` du dossier `values` ajouter ce style :
+
+
+```
+    <style name="TextLabel" parent="TextAppearance.AppCompat">
+        <!-- Hint color et label color si pas de focus -->
+        <item name="android:textColorHint">@color/red_500</item>
+        <item name="android:textSize">20sp</item>
+        <!-- bar color -->
+        <item name="colorControlNormal">@color/pink_300</item>
+         <!-- Label color si focus -->
+        <item name="colorControlActivated">@color/green_400</item>
+    </style>
+```
+
+Puis dans le layout de l'activité indiquer à la vue TextInputLayout quel thème utiliser en y ajoutant l'attribut : `android:theme="@style/TextLabel"`
+
 ---
 
 ### Construction du 2ème layout
@@ -102,7 +203,7 @@ Nous avons donc un fichier de définition de transition qui décrit comment une 
 
 Par la suite nous devons déclarer dans le fichier de style que nous allons utiliser des transitions. Puis définir les transitions d'entrée et de sortie par défaut.
 
-Mettre dans style.xml :
+Mettre dans style.xml dans le style de votre choix (généralement `appTheme`) :
 ```
 <!-- enable window content transitions -->
 <item name="android:windowActivityTransitions">true</item>
@@ -114,9 +215,9 @@ Mettre dans style.xml :
 
 Il ne reste plus que deux étapes avant d'en terminer avec cette transition :
 
-Donnons un nom de transition au **second** logo (celui dans la liste des salons) : Ajoutez l'attribut `transitionName` à l'`ImageView ` donnez lui pour nom `logo`
+Donnons un nom de transition au **second** logo dans le layout de votre deuxième activité (celui de la liste des salons) : Ajoutez l'attribut `transitionName` à l'`ImageView ` donnez lui pour nom `logo`
 
-La 'final touch' : Dans votre première activité (celle de login) lors de votre intent vers le 2ème écran 
+La 'final touch' : Dans votre première activité java (celle de login) lors de votre intent vers le 2ème écran 
 
 Remplacez votre intent par celle-ci :
 
@@ -125,7 +226,7 @@ Intent loginIntent = new Intent(LoginActivity.this, ChannelListActivity.class);
 startActivity(loginIntent, ActivityOptions.makeSceneTransitionAnimation(LoginActivity.this, mIvLogo, "logo").toBundle());
 ```
 
-L'astuce réside ici dans `ActivityOptions.makeSceneTransitionAnimation` qui prends en 1er paramètre l'activité, en second la vue `ImageView` du logo et enfin le nom que nous avons précédement donner au second logo (ici Android sait donc par quelle vue commencer et par quelle vue finir !)
+L'astuce réside ici dans `ActivityOptions.makeSceneTransitionAnimation` qui prends en 1er paramètre l'activité, en second la vue `ImageView` du 1er logo et enfin le nom que nous avons précédement donner au second logo (ici Android sait donc par quelle vue commencer et par quelle vue finir !)
 
 - Testez ! Essayez plusieurs type de transition et incorporez un second élément de transition (comme un `TextView` par exemple).
 
@@ -175,10 +276,10 @@ compile 'com.daimajia.androidanimations:library:2.2@aar'
 
 On souhaite maintenant ajouter l'effet 'tada' au logo toutes les 4 secondes.
 
-Pour pouvoir exécuter une tache toute les 'x' seconde une des méthodes possible est la suivante :
+Pour pouvoir exécuter une tache toute les 'x' seconde une des méthodes possible est la suivante (à mettre dans le onCreate) :
 
 ```
-mHandlerTada = new Handler();
+mHandlerTada = new Handler(); // android.os.handler
 mShortDelay = 4000; //milliseconds
 
 mHandlerTada.postDelayed(new Runnable(){
@@ -197,7 +298,7 @@ mHandlerTada.postDelayed(new Runnable(){
 
 Une seconde façon de faire est de définir une animation a la main en `xml` :
 
-- Créez un dossier de ressource nommé `anim`
+- Créez un dossier de ressource (package `res`) nommé `anim`
 - Créez le fichier `slide_left.xml` dans ce dossier et y insérer :
 
 ```
@@ -218,6 +319,8 @@ Une seconde façon de faire est de définir une animation a la main en `xml` :
 C'est dans ce dossier qu'on insère toutes les animations du projet.
 
 Nous allons à l'appui du bouton connexion faire disparaitre le `TextView` du dessous via une animation de glissement par la gauche. Pour cela il suffit de déclarer et d'instancier l'animation au moment voulu. Puis de la lancer via la méthode `startAnimation()` de la vue. 
+
+Dans l'activité java ou vous voulez que l'animation se joue :
 
 ```
             Animation animSlideLeft = AnimationUtils.loadAnimation(this, R.anim.slide_left);
