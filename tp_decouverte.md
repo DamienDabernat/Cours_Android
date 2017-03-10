@@ -11,13 +11,16 @@ Nous vous proposons de découvrir le langage JAVA avec Android et une de ses pla
 2.	Importer un projet et l’exécuter 
 3.	Comprendre le code et le manipuler 
  
- 
+---
+
 ## Lancez l'outil de développement :  
  
 Comme vous pouvez le faire chez vous, nous utiliserons un outil de développement spécifique préconfiguré pour programmer sur Android : [`Android Studio`](http://developer.android.com/sdk/index.html). A partir du menu `Démarrer`, puis cherchez le programme `Android studio`.  Vous devez obtenir la fenêtre suivante si c’est votre première utilisation du logiciel :  
  
  ![N|Solid](http://damien.dabernat.fr/android/android1.jpg)
- 
+
+---
+
 ## Importer le projet : 
  
 Importez le projet dans Android Studio : 
@@ -40,6 +43,8 @@ Une fois le projet ouvert, l'apparence d'Android Studio devrait ressembler à ce
 Si ce n'est déja pas le cas mettez la vue en mode `Android` en ouvrant la rubrique `Projet` puis en selectionnant le projet `Android` :
 
  ![N|Solid](http://damien.dabernat.fr/android/android5.jpg)
+ 
+--- 
  
 ## Du code ! 
   
@@ -93,6 +98,8 @@ Special  :
 >Indice : Un coût de `(2000 * numberOfCookiesGainedByClick)` parait raisonable
 
 >Indice² : Le type de bonus est `Menu.BonusType.CLICK`
+
+---
 
 ## Voici vos premiers pas en programmation Android, de nombreuses autres notions intéressantes sont à voir !
 
