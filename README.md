@@ -21,6 +21,7 @@
 
 ## En vrac :
 * [Liste de couleurs](http://damien.dabernat.fr/android/index.php?link=https://raw.githubusercontent.com/AboutGoods/Coding_GoodPractise/master/colors.xml)
+* [Setup des sessions IUT](http://damien.dabernat.fr/android/index.php?link=https://github.com/DamienDabernat/Cours_Android/blob/master/setup_session.md)
 
 
 
