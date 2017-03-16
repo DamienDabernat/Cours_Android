@@ -52,6 +52,8 @@ Si ce n'est déja pas le cas mettez la vue en mode `Android` en ouvrant la rubri
   
 > Vous pouvez à tout moment démarrer votre application grâce au bouton `Run` : ![N|Solid](http://damien.dabernat.fr/android/android4.jpg)
 
+> La totalité du code se trouve dans le dossier `java` du projet puis dans `fr.dabernat.cookieclicker` et enfin dans `cookieActivity`
+
 1. Lancer l'application, et jouez un peu avec pour prendre un main le projet.
 2. Exploration du code : 
 A l'aide de l'explorateur de projet, à gauche de l'interface, naviguez dans la structure du programme.  
