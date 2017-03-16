@@ -15,7 +15,7 @@
 
 ## Les différents projets :
 
-* [CookieClicker](http://damien.dabernat.fr/android/CookieClicker.zip) 
+* [CookieClicker](http://damien.dabernat.fr/android/CookieClicker2.zip) 
 
 ---
 
