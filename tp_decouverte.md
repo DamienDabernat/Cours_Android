@@ -68,8 +68,8 @@ Trouvez où se cache le code permettant de :
 3. Trouvez le dossier `res->Drawable` dans le projet
 
  ![N|Solid](http://damien.dabernat.fr/android/android6.jpg)
-
-4. Copier et remplacer le fichier cookie.png par le nouveau que vous avez choisi
+4. Faire un clique droit sur ce dossier puis `show in explorer`
+5. Dans le dossier `Drawable` copier et remplacer le fichier cookie.png par le nouveau que vous avez choisi en prenant le temps de le renommer également `cookie.png`
 
 #### Exercice 3) 
 
