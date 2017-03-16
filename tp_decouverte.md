@@ -75,6 +75,8 @@ Trouvez où se cache le code permettant de :
 
 1. Faites en sorte que le nombre de cookie gagné (au total / par clique / par seconde) soit sauvegardé d'un lancement à un autre
 
+> Indice : Pour arrêter l'application vous pouvez cliquer sur le carré rouge puis relancer le jeu avec la flêche verte. Si le nombre de cookie est le même alors vous avez réussi !
+
 #### Exercice 4) 
 1. A partir de la liste d'effet ci-dessous faites-en sorte de modifier l'animation du 'gros' cookie
 ##### Effets :
