@@ -85,11 +85,8 @@ Une ligne de code qui commence par `//` ou un bloc de code qui commence est fini
 1. A partir de la liste d'effet ci-dessous faites-en sorte de modifier l'animation du 'gros' cookie
 ##### Effets :
   
-Attention :
-* `Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`, `StandUp`, `Wave`
-
-Special  :
-* `Hinge`, `RollIn`, `RollOut`,`Landing`,`TakingOff`,`DropOut`
+* `Flash`, `Pulse`, `RubberBand`, `Shake`, `Swing`, `Wobble`, `Bounce`, `Tada`, 
+* `Hinge`, `RollIn`, `RollOut`,`Landing`,`TakingOff`,`DropOut`, `StandUp`, `Wave`
   
 > Indice : Cherchez la ligne : `YoYo.with(Techniques.Pulse)` du 'gros cookie' où `Techniques.Pulse` correspond à l'effet `Pulse`
 
