@@ -73,6 +73,8 @@ Trouvez où se cache le code permettant de :
 
 #### Exercice 3) 
 
+Une ligne de code qui commence par `//` ou un bloc de code qui commence est finis comme suit : `/* [...] */`se nomme un commentaire. Les lignes de codes commentées ne seront pas éxécuté et donc pas comprise par le téléphone. La consignes suivantes vous invites à remplacer certaines lignes de codes existante par d'autre. A vous de trouvez !
+
 1. Faites en sorte que le nombre de cookie gagné (au total / par clique / par seconde) soit sauvegardé d'un lancement à un autre
 
 > Indice : Pour arrêter l'application vous pouvez cliquer sur le carré rouge puis relancer le jeu avec la flêche verte. Si le nombre de cookie est le même alors vous avez réussi !
