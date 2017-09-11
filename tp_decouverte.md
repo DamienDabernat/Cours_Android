@@ -25,7 +25,7 @@ Comme vous pouvez le faire chez vous, nous utiliserons un outil de développemen
  
 Importez le projet dans Android Studio : 
 
-1.	[Téléchargez le projet ici](http://damien.dabernat.fr/android/CookieClicker.zip)  
+1.	[Téléchargez le projet ici](http://damien.dabernat.fr/android/CookieClicker2.zip)  
 
 2.	Recopiez le projet compressé (CookieClicker.zip) se trouvant sur dans votre lecteur P : et décompressez le sur le lecteur D :. 
 Pour décompresser l'archive : clic-droit dessus puis ` Extraire tout... `
