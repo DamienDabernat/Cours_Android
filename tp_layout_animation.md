@@ -10,7 +10,7 @@ Tout au long de ce projet nous allons utiliser des éléments de design qui ne s
 - Dans le build.gradle (Module : app) :
 ```
 // Support lib for material design
-compile 'com.android.support:design:25.1.0'
+compile 'com.android.support:design:23.1.0'
 ```
 
 - Profitez-en pour changer la version minimum du sdk à 21 (Android Lollipop) si ce n'est pas déja le cas.
@@ -107,15 +107,14 @@ Ce sont ces trois couleurs qui seront utilisé par défaut pour donner une coule
 ```
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".activity.LoginActivity"
     android:id="@+id/llBackground">
 ```
 
@@ -153,7 +152,7 @@ Dans le fichier `style.xml` du dossier `values` ajouter ce style :
 
 
 ```
-    <style name="TextLabel" parent="TextAppearance.AppCompat">
+    <style name="TextLabel" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Hint color et label color si pas de focus -->
         <item name="android:textColorHint">@color/red_500</item>
         <item name="android:textSize">20sp</item>
