@@ -396,3 +396,7 @@ Une dernière touche d'animation pour finir ce layout : [La réalisation d'un d�
 Réalisez une activité "A propos" en utilisant les coordinators layout
 
 ---
+
+## Ref
+
+[Diapo](https://docs.google.com/presentation/d/1UJOXNbNGa0OUE1ZrmeOlR5c1XC4lBzsnuUGx7JL0sGs/edit?usp=sharing)
