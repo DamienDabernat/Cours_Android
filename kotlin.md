@@ -21,3 +21,21 @@ Ensuite à l'appel :
 Log.d("Test", string.removeSpecifier)
 Log.d("Test", string.add1())
 ```
+Faire de l'async IZI :
+
+```Java
+class doAsync(val handler: () -> Unit) : AsyncTask<Void, Void, Void>() {
+    override fun doInBackground(vararg params: Void?): Void? {
+        handler()
+        return null
+    }
+}
+```
+
+Puis n'importe ou faire :
+
+```Java
+doAsync {
+    //My async code
+}.execute()
+```
